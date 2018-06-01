@@ -9,10 +9,10 @@ echo "Setting core to $clock and mem to $mem"
 
 for id in "${devices[@]}"
 do
-    nvidia-settings -c :0 -a "[gpu:$id]/GPUFanControlState=1"
-    nvidia-settings -c :0 -a "[fan:$id]/GPUTargetFanSpeed=88"
-    nvidia-settings -c :0 -a "[gpu:$id]/GPUGraphicsClockOffset[3]=$clock"
-    nvidia-settings -c :0 -a "[gpu:$id]/GPUMemoryTransferRateOffset[3]=$mem"
+    nvidia-settings -a "[gpu:$id]/GPUFanControlState=1"
+    nvidia-settings -a "[fan:$id]/GPUTargetFanSpeed=88"
+    nvidia-settings -a "[gpu:$id]/GPUGraphicsClockOffset[3]=$clock"
+    nvidia-settings -a "[gpu:$id]/GPUMemoryTransferRateOffset[3]=$mem"
 done
 
 wait
